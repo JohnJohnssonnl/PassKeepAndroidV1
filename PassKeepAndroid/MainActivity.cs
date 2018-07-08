@@ -2,10 +2,10 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
-using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using PassKeepAndroid.CORE;
+using Android.Content;
 
 namespace PassKeepAndroid
 {
@@ -25,12 +25,18 @@ namespace PassKeepAndroid
             Button LookupPassStorageButton      = FindViewById<Button>(Resource.Id.LookupPassStorageButton);
             Button RemovePassStorageButton      = FindViewById<Button>(Resource.Id.RemovePassStorageButton);
             Button SwipePassStorageButton       = FindViewById<Button>(Resource.Id.SwipePassStorageButton);
+            Button GitHubButtonClicked          = FindViewById<Button>(Resource.Id.GitHubButtonClicked);
+            ImageView iv                        = FindViewById<ImageView>(Resource.Id.imageView2);
+            iv.SetImageResource(Resource.Drawable.passkeeper);
+            TextView VersionSet                 = FindViewById<TextView>(Resource.Id.VersionSet);
+            VersionSet.Text                     = GetApplicationVersion();  //Sets application version
 
             //Add clicked events, need to do something right?
             CreatePassStorageButton.Click   += CreatePassStorageButtonClicked;
             LookupPassStorageButton.Click   += LookupPassStorageButtonClicked;
             RemovePassStorageButton.Click   += RemovePassStorageButtonClicked;
             SwipePassStorageButton.Click    += SwipePassStorageButtonClicked;
+            GitHubButtonClicked.Click       += GitHubButtonClickedEH;
         }
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
@@ -50,6 +56,13 @@ namespace PassKeepAndroid
             return base.OnOptionsItemSelected(item);
         }
 
+        private string GetApplicationVersion()
+        {
+            String VersionName = global::Android.App.Application.Context.PackageManager.GetPackageInfo(global::Android.App.Application.Context.PackageName, 0).VersionName.ToString();
+            String VersionId   = global::Android.App.Application.Context.PackageManager.GetPackageInfo(global::Android.App.Application.Context.PackageName, 0).VersionCode.ToString();
+            return  "Build: " + VersionId + " (" + VersionName + ")";
+        }
+
         private void CreatePassStorageButtonClicked(object sender, EventArgs eventArgs)
         {
             String FileDir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
@@ -65,7 +78,6 @@ namespace PassKeepAndroid
             //Cleanup
             WebsitePass.Text = "";
             WebsiteURL.Text = "";
-
             SYSOutput.Text = Ret;
         }
         private void LookupPassStorageButtonClicked(object sender, EventArgs eventArgs)
@@ -104,6 +116,15 @@ namespace PassKeepAndroid
             View view = (View)sender;
 
             SYSOutput.Text = Ret;
+        }
+        private void GitHubButtonClickedEH(object sender, EventArgs eventArgs)
+        {
+            var uri = Android.Net.Uri.Parse("https://github.com/JohnJohnssonnl/PassKeepAndroidV1");
+            var intent = new Intent(Intent.ActionView, uri);
+            StartActivity(intent);
+
+
+            View view = (View)sender;
         }
     }
 }

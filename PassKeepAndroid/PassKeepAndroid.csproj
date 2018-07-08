@@ -98,11 +98,12 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\passkeeper.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\passkeeper.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\passkeeper.png" />
-    <AndroidAsset Include="Resources\Images\JJ.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\passkeeper.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidAsset Include="Resources\Images\passkeeper.png" />
+    <AndroidResource Include="Resources\Drawable\passkeeper.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
