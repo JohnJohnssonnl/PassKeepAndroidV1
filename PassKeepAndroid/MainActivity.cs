@@ -27,9 +27,9 @@ namespace PassKeepAndroid
             Button SwipePassStorageButton       = FindViewById<Button>(Resource.Id.SwipePassStorageButton);
             Button GitHubButtonClicked          = FindViewById<Button>(Resource.Id.GitHubButtonClicked);
             ImageView iv                        = FindViewById<ImageView>(Resource.Id.imageView2);
-            iv.SetImageResource(Resource.Drawable.passkeeper);
+            iv.SetImageResource(Resource.Drawable.passkeeperV2);
             TextView VersionSet                 = FindViewById<TextView>(Resource.Id.VersionSet);
-            VersionSet.Text                     = GetApplicationVersion();  //Sets application version
+            VersionSet.Text                     = Helper.GetApplicationVersion();  //Sets application version
 
             //Add clicked events, need to do something right?
             CreatePassStorageButton.Click   += CreatePassStorageButtonClicked;
@@ -54,13 +54,6 @@ namespace PassKeepAndroid
             }
 
             return base.OnOptionsItemSelected(item);
-        }
-
-        private string GetApplicationVersion()
-        {
-            String VersionName = global::Android.App.Application.Context.PackageManager.GetPackageInfo(global::Android.App.Application.Context.PackageName, 0).VersionName.ToString();
-            String VersionId   = global::Android.App.Application.Context.PackageManager.GetPackageInfo(global::Android.App.Application.Context.PackageName, 0).VersionCode.ToString();
-            return  "Build: " + VersionId + " (" + VersionName + ")";
         }
 
         private void CreatePassStorageButtonClicked(object sender, EventArgs eventArgs)
