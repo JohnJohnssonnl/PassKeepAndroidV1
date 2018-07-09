@@ -19,7 +19,6 @@ namespace PassKeepAndroid
 
 			SetContentView(Resource.Layout.activity_main);
 
-
             //Look, I'm finding buttons from the Layout, party mode!
             Button CreatePassStorageButton      = FindViewById<Button>(Resource.Id.CreatePassStorageButton);
             Button LookupPassStorageButton      = FindViewById<Button>(Resource.Id.LookupPassStorageButton);
@@ -32,11 +31,11 @@ namespace PassKeepAndroid
             VersionSet.Text                     = Helper.GetApplicationVersion();  //Sets application version
 
             //Add clicked events, need to do something right?
-            CreatePassStorageButton.Click   += CreatePassStorageButtonClicked;
-            LookupPassStorageButton.Click   += LookupPassStorageButtonClicked;
-            RemovePassStorageButton.Click   += RemovePassStorageButtonClicked;
-            SwipePassStorageButton.Click    += SwipePassStorageButtonClicked;
-            GitHubButtonClicked.Click       += GitHubButtonClickedEH;
+            CreatePassStorageButton.Click       += CreatePassStorageButtonClicked;
+            LookupPassStorageButton.Click       += LookupPassStorageButtonClicked;
+            RemovePassStorageButton.Click       += RemovePassStorageButtonClicked;
+            SwipePassStorageButton.Click        += SwipePassStorageButtonClicked;
+            GitHubButtonClicked.Click           += GitHubButtonClickedEH;
         }
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
@@ -58,31 +57,25 @@ namespace PassKeepAndroid
 
         private void CreatePassStorageButtonClicked(object sender, EventArgs eventArgs)
         {
-            String FileDir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
-            View view = (View) sender;
-
-            EditText EncryptDecryptCode = FindViewById<EditText>(Resource.Id.EncryptDecryptCode);
-            EditText WebsiteURL         = FindViewById<EditText>(Resource.Id.WebsiteURL);
-            EditText WebsitePass        = FindViewById<EditText>(Resource.Id.WebsitePass);
-            TextView SYSOutput          = FindViewById<TextView>(Resource.Id.SystemOutput);
+            String      FileDir             = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
+            EditText    EncryptDecryptCode  = FindViewById<EditText>(Resource.Id.EncryptDecryptCode);
+            EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
+            EditText    WebsitePass         = FindViewById<EditText>(Resource.Id.WebsitePass);
+            TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
             
             String Ret = UIHandlingService.CreatePass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text, WebsitePass.Text);
 
-            //Cleanup
-            WebsitePass.Text = "";
-            WebsiteURL.Text = "";
-            SYSOutput.Text = Ret;
+            WebsitePass.Text                = "";
+            WebsiteURL.Text                 = "";
+            SYSOutput.Text                  = Ret;
         }
         private void LookupPassStorageButtonClicked(object sender, EventArgs eventArgs)
         {
-            String FileDir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
-            View view = (View)sender;
-
-            EditText EncryptDecryptCode = FindViewById<EditText>(Resource.Id.EncryptDecryptCode);
-            EditText WebsiteURL = FindViewById<EditText>(Resource.Id.WebsiteURL);
-            TextView SYSOutput = FindViewById<TextView>(Resource.Id.SystemOutput);
-
-            String Ret = UIHandlingService.ReadPass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text);
+            String      FileDir             = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
+            EditText    EncryptDecryptCode  = FindViewById<EditText>(Resource.Id.EncryptDecryptCode);
+            EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
+            TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
+            String      Ret                 = UIHandlingService.ReadPass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text);
 
             WebsiteURL.Text = "";
 
@@ -90,12 +83,10 @@ namespace PassKeepAndroid
         }
         private void RemovePassStorageButtonClicked(object sender, EventArgs eventArgs)
         {
-            TextView SYSOutput = FindViewById<TextView>(Resource.Id.SystemOutput);
-            String FileDir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
-            EditText WebsiteURL = FindViewById<EditText>(Resource.Id.WebsiteURL);
-            String Ret = UIHandlingService.RemoveStorageSpecific(FileDir, WebsiteURL.Text);
-
-            View view = (View)sender;
+            TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
+            String      FileDir             = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
+            EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
+            String      Ret                 = UIHandlingService.RemoveStorageSpecific(FileDir, WebsiteURL.Text);
 
             SYSOutput.Text = Ret;
         }
@@ -103,21 +94,16 @@ namespace PassKeepAndroid
         {
             String FileDir = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).Path;
 
-            String Ret = UIHandlingService.WipeAllPasses(FileDir);
-            TextView SYSOutput = FindViewById<TextView>(Resource.Id.SystemOutput);
+            String      Ret                 = UIHandlingService.WipeAllPasses(FileDir);
+            TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
 
-            View view = (View)sender;
-
-            SYSOutput.Text = Ret;
+            SYSOutput.Text                  = Ret;
         }
         private void GitHubButtonClickedEH(object sender, EventArgs eventArgs)
         {
             var uri = Android.Net.Uri.Parse("https://github.com/JohnJohnssonnl/PassKeepAndroidV1");
             var intent = new Intent(Intent.ActionView, uri);
             StartActivity(intent);
-
-
-            View view = (View)sender;
         }
     }
 }
