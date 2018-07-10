@@ -2354,6 +2354,9 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f070035
 			public const int META = 2131165237;
 			
+			// aapt resource value: 0x7f07009b
+			public const int PBReporter = 2131165339;
+			
 			// aapt resource value: 0x7f070097
 			public const int RemovePassStorageButton = 2131165335;
 			
@@ -2600,8 +2603,8 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f070099
 			public const int imageView1 = 2131165337;
 			
-			// aapt resource value: 0x7f07009b
-			public const int imageView2 = 2131165339;
+			// aapt resource value: 0x7f07008c
+			public const int imageView2 = 2131165324;
 			
 			// aapt resource value: 0x7f0700b8
 			public const int info = 2131165368;
@@ -2842,9 +2845,6 @@ namespace PassKeepAndroid
 			
 			// aapt resource value: 0x7f07008e
 			public const int textView5 = 2131165326;
-			
-			// aapt resource value: 0x7f07008c
-			public const int textView6 = 2131165324;
 			
 			// aapt resource value: 0x7f0700aa
 			public const int text_input_password_toggle = 2131165354;

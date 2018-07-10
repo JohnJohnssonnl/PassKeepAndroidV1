@@ -26,7 +26,7 @@ namespace PassStorageService.CORE
         public static string PBKDF2Service(string _Input, int _iterations)
         {
             Rfc2898PasswordEncoder passEncoder = new Rfc2898PasswordEncoder();
-            string ret = Convert.ToBase64String(passEncoder.EncodePassword(_Input, 1000).Hash);
+            string ret = Convert.ToBase64String(passEncoder.EncodePassword(_Input, _iterations).Hash);
 
             return ret;
         }

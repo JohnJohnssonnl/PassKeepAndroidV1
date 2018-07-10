@@ -1,5 +1,6 @@
 ﻿using PassStorageService.CORE;
 using Android;
+using PassKeepAndroid;
 
 namespace PassKeepAndroid.CORE
 {
@@ -7,14 +8,12 @@ namespace PassKeepAndroid.CORE
     {
         public static string CreatePass(string _encryptionKeyPlain, string _fileDir, string _websiteURL, string _websitePass)
         {
-
             if (_encryptionKeyPlain == "")
             {
                 return "Please fill in the encryption key first";
             }
 
-            string EncryptionKey = CandyStore.PBKDF2Service(_encryptionKeyPlain, 10000);//PBKDF2Encryptor.GenerateSaltedOutput(_encryptionKeyPlain);
-                                                                                       //ONLY FOR FAST MOBILE PHONES: StringToEncryptedED25519.CreateEncryption(_encryptionKeyPlain);
+            string EncryptionKey = CandyStore.PBKDF2Service(_encryptionKeyPlain, 10000);
 
             try
             {

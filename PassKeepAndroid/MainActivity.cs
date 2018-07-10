@@ -29,6 +29,8 @@ namespace PassKeepAndroid
             iv.SetImageResource(Resource.Drawable.passkeeperV2);
             TextView VersionSet                 = FindViewById<TextView>(Resource.Id.VersionSet);
             VersionSet.Text                     = Helper.GetApplicationVersion();  //Sets application version
+            ProgressBar PBReporter = FindViewById<ProgressBar>(Resource.Id.PBReporter);
+            PBReporter.Visibility = ViewStates.Invisible;
 
             //Add clicked events, need to do something right?
             CreatePassStorageButton.Click       += CreatePassStorageButtonClicked;
@@ -62,9 +64,10 @@ namespace PassKeepAndroid
             EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
             EditText    WebsitePass         = FindViewById<EditText>(Resource.Id.WebsitePass);
             TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
-            
+            ProgressBar PBReporter = FindViewById<ProgressBar>(Resource.Id.PBReporter);
+            PBReporter.Visibility = ViewStates.Visible;
             String Ret = UIHandlingService.CreatePass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text, WebsitePass.Text);
-
+            PBReporter.Visibility = ViewStates.Invisible;
             WebsitePass.Text                = "";
             WebsiteURL.Text                 = "";
             SYSOutput.Text                  = Ret;
@@ -75,8 +78,10 @@ namespace PassKeepAndroid
             EditText    EncryptDecryptCode  = FindViewById<EditText>(Resource.Id.EncryptDecryptCode);
             EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
             TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
+            ProgressBar PBReporter = FindViewById<ProgressBar>(Resource.Id.PBReporter);
+            PBReporter.Visibility = ViewStates.Visible;
             String      Ret                 = UIHandlingService.ReadPass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text);
-
+            PBReporter.Visibility = ViewStates.Invisible;
             WebsiteURL.Text = "";
 
             SYSOutput.Text = Ret;
