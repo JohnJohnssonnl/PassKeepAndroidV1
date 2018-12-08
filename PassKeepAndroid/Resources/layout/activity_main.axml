@@ -40,6 +40,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
+            android:text="Iterations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/textView6" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/NumOfIterations" />
+        <TextView
             android:text="Website URL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,39 +84,37 @@
             android:layoutDirection="ltr"
             android:gravity="center">
             <Button
-                android:text="Create"
-                android:id="@+id/CreatePassStorageButton"
-                android:foregroundTint="#ffffffff"
-                android:foreground="#ffffffff"
-                android:textColor="#ffffffff"
-                android:width="100px"
-                android:height="60px"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#ff29b6f6" />
-            <Button
-                android:text="Lookup"
+                android:text="Find"
                 android:id="@+id/LookupPassStorageButton"
                 android:textColor="#ffffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:width="100px"
+                android:width="50px"
                 android:background="#ff29b6f6"
                 android:layout_marginLeft="10px" />
             <Button
-                android:text="Remove"
+                android:text="Make"
+                android:id="@+id/CreatePassStorageButton"
+                android:textColor="#ffffffff"
+                android:width="50px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#ff66bb6a"
+                android:layout_marginLeft="10px" />
+            <Button
+                android:text="Clear"
                 android:id="@+id/RemovePassStorageButton"
                 android:textColor="#ffffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:width="100px"
+                android:width="50px"
                 android:background="#ff29b6f6"
                 android:layout_marginLeft="10px" />
             <Button
                 android:text="Wipe"
                 android:id="@+id/SwipePassStorageButton"
                 android:textColor="#ffffffff"
-                android:width="100px"
+                android:width="50px"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="#ff29b6f6"
@@ -114,23 +124,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageView1" />
-        <Button
-            android:text="Check GitHub for the latest codebase"
-            android:id="@+id/GitHubButtonClicked"
-            android:foregroundTint="#ffffffff"
-            android:foreground="#ffffffff"
-            android:textColor="#ffffffff"
-            android:width="100px"
-            android:height="60px"
-            android:background="#ff29b6f6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20px" />
-        <ProgressBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/PBReporter"
-            android:layout_marginTop="20px" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

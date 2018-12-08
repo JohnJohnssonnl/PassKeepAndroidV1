@@ -4,10 +4,10 @@ namespace PassStorageService.CORE
 {
     public class CreatePassService
     {
-        public static Boolean CreatePass(string _websiteString, string _websitePass, string _encryptionKey, string _fileDir)
+        public static Boolean CreatePass(string _websiteString, string _websitePass, string _encryptionKey, string _fileDir, int _numOfIterations)
         {
 
-            string uniqueId = CandyStore.PBKDF2Service(_websiteString, 10000);
+            string uniqueId = CandyStore.PBKDF2Service(_websiteString, _numOfIterations);
             uniqueId = CandyStore.ToHexString(uniqueId);
             string encryptedPass = EncryptDecryptStore.Encrypt(_websitePass, _encryptionKey);
 
@@ -25,7 +25,7 @@ namespace PassStorageService.CORE
             catch
             {
                 return false;
-            }
+            }            
         }
     }
 }

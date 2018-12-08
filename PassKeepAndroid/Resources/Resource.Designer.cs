@@ -2336,8 +2336,8 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f070033
 			public const int CTRL = 2131165235;
 			
-			// aapt resource value: 0x7f070095
-			public const int CreatePassStorageButton = 2131165333;
+			// aapt resource value: 0x7f070098
+			public const int CreatePassStorageButton = 2131165336;
 			
 			// aapt resource value: 0x7f07008f
 			public const int EncryptDecryptCode = 2131165327;
@@ -2345,20 +2345,17 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f070034
 			public const int FUNCTION = 2131165236;
 			
-			// aapt resource value: 0x7f07009a
-			public const int GitHubButtonClicked = 2131165338;
-			
-			// aapt resource value: 0x7f070096
-			public const int LookupPassStorageButton = 2131165334;
+			// aapt resource value: 0x7f070097
+			public const int LookupPassStorageButton = 2131165335;
 			
 			// aapt resource value: 0x7f070035
 			public const int META = 2131165237;
 			
-			// aapt resource value: 0x7f07009b
-			public const int PBReporter = 2131165339;
+			// aapt resource value: 0x7f070091
+			public const int NumOfIterations = 2131165329;
 			
-			// aapt resource value: 0x7f070097
-			public const int RemovePassStorageButton = 2131165335;
+			// aapt resource value: 0x7f070099
+			public const int RemovePassStorageButton = 2131165337;
 			
 			// aapt resource value: 0x7f070036
 			public const int SHIFT = 2131165238;
@@ -2366,8 +2363,8 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f070037
 			public const int SYM = 2131165239;
 			
-			// aapt resource value: 0x7f070098
-			public const int SwipePassStorageButton = 2131165336;
+			// aapt resource value: 0x7f07009a
+			public const int SwipePassStorageButton = 2131165338;
 			
 			// aapt resource value: 0x7f07009c
 			public const int SystemOutput = 2131165340;
@@ -2375,11 +2372,11 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f07008d
 			public const int VersionSet = 2131165325;
 			
-			// aapt resource value: 0x7f070093
-			public const int WebsitePass = 2131165331;
+			// aapt resource value: 0x7f070095
+			public const int WebsitePass = 2131165333;
 			
-			// aapt resource value: 0x7f070091
-			public const int WebsiteURL = 2131165329;
+			// aapt resource value: 0x7f070093
+			public const int WebsiteURL = 2131165331;
 			
 			// aapt resource value: 0x7f0700ae
 			public const int action0 = 2131165358;
@@ -2600,8 +2597,8 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f07005f
 			public const int image = 2131165279;
 			
-			// aapt resource value: 0x7f070099
-			public const int imageView1 = 2131165337;
+			// aapt resource value: 0x7f07009b
+			public const int imageView1 = 2131165339;
 			
 			// aapt resource value: 0x7f07008c
 			public const int imageView2 = 2131165324;
@@ -2630,8 +2627,8 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f07008b
 			public const int linearLayout3 = 2131165323;
 			
-			// aapt resource value: 0x7f070094
-			public const int linearLayout4 = 2131165332;
+			// aapt resource value: 0x7f070096
+			public const int linearLayout4 = 2131165334;
 			
 			// aapt resource value: 0x7f07001d
 			public const int listMode = 2131165213;
@@ -2837,14 +2834,17 @@ namespace PassKeepAndroid
 			// aapt resource value: 0x7f070069
 			public const int textSpacerNoTitle = 2131165289;
 			
-			// aapt resource value: 0x7f070092
-			public const int textView2 = 2131165330;
+			// aapt resource value: 0x7f070094
+			public const int textView2 = 2131165332;
 			
-			// aapt resource value: 0x7f070090
-			public const int textView3 = 2131165328;
+			// aapt resource value: 0x7f070092
+			public const int textView3 = 2131165330;
 			
 			// aapt resource value: 0x7f07008e
 			public const int textView5 = 2131165326;
+			
+			// aapt resource value: 0x7f070090
+			public const int textView6 = 2131165328;
 			
 			// aapt resource value: 0x7f0700aa
 			public const int text_input_password_toggle = 2131165354;
@@ -3305,6 +3305,9 @@ namespace PassKeepAndroid
 			
 			// aapt resource value: 0x7f080026
 			public const int status_bar_notification_info_overflow = 2131230758;
+			
+			// aapt resource value: 0x7f080029
+			public const int text = 2131230761;
 			
 			static String()
 			{

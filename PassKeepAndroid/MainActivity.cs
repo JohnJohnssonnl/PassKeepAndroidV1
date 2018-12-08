@@ -18,26 +18,24 @@ namespace PassKeepAndroid
 			base.OnCreate(savedInstanceState);
 
 			SetContentView(Resource.Layout.activity_main);
-
+            
             //Look, I'm finding buttons from the Layout, party mode!
             Button CreatePassStorageButton      = FindViewById<Button>(Resource.Id.CreatePassStorageButton);
             Button LookupPassStorageButton      = FindViewById<Button>(Resource.Id.LookupPassStorageButton);
             Button RemovePassStorageButton      = FindViewById<Button>(Resource.Id.RemovePassStorageButton);
             Button SwipePassStorageButton       = FindViewById<Button>(Resource.Id.SwipePassStorageButton);
-            Button GitHubButtonClicked          = FindViewById<Button>(Resource.Id.GitHubButtonClicked);
             ImageView iv                        = FindViewById<ImageView>(Resource.Id.imageView2);
             iv.SetImageResource(Resource.Drawable.passkeeperV2);
             TextView VersionSet                 = FindViewById<TextView>(Resource.Id.VersionSet);
             VersionSet.Text                     = Helper.GetApplicationVersion();  //Sets application version
-            ProgressBar PBReporter = FindViewById<ProgressBar>(Resource.Id.PBReporter);
-            PBReporter.Visibility = ViewStates.Invisible;
+            
 
             //Add clicked events, need to do something right?
             CreatePassStorageButton.Click       += CreatePassStorageButtonClicked;
             LookupPassStorageButton.Click       += LookupPassStorageButtonClicked;
             RemovePassStorageButton.Click       += RemovePassStorageButtonClicked;
             SwipePassStorageButton.Click        += SwipePassStorageButtonClicked;
-            GitHubButtonClicked.Click           += GitHubButtonClickedEH;
+            iv.Click                            += GitHubButtonClickedEH;
         }
 
 		public override bool OnCreateOptionsMenu(IMenu menu)
@@ -64,10 +62,8 @@ namespace PassKeepAndroid
             EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
             EditText    WebsitePass         = FindViewById<EditText>(Resource.Id.WebsitePass);
             TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
-            ProgressBar PBReporter = FindViewById<ProgressBar>(Resource.Id.PBReporter);
-            PBReporter.Visibility = ViewStates.Visible;
-            String Ret = UIHandlingService.CreatePass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text, WebsitePass.Text);
-            PBReporter.Visibility = ViewStates.Invisible;
+            TextView    NumOfIterations     = FindViewById<TextView>(Resource.Id.NumOfIterations);
+            String Ret = UIHandlingService.CreatePass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text, WebsitePass.Text, NumOfIterations.Text);
             WebsitePass.Text                = "";
             WebsiteURL.Text                 = "";
             SYSOutput.Text                  = Ret;
@@ -78,10 +74,9 @@ namespace PassKeepAndroid
             EditText    EncryptDecryptCode  = FindViewById<EditText>(Resource.Id.EncryptDecryptCode);
             EditText    WebsiteURL          = FindViewById<EditText>(Resource.Id.WebsiteURL);
             TextView    SYSOutput           = FindViewById<TextView>(Resource.Id.SystemOutput);
-            ProgressBar PBReporter = FindViewById<ProgressBar>(Resource.Id.PBReporter);
-            PBReporter.Visibility = ViewStates.Visible;
-            String      Ret                 = UIHandlingService.ReadPass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text);
-            PBReporter.Visibility = ViewStates.Invisible;
+            TextView    NumOfIterations     = FindViewById<TextView>(Resource.Id.NumOfIterations);
+            String      Ret                 = UIHandlingService.ReadPass(EncryptDecryptCode.Text, FileDir, WebsiteURL.Text, NumOfIterations.Text);
+ 
             WebsiteURL.Text = "";
 
             SYSOutput.Text = Ret;

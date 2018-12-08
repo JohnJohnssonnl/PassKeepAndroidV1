@@ -9,7 +9,7 @@ namespace PassStorageService.CORE
         public static string RemoveStorageSpecific(string _fileDir, string _websiteUniqueID)
         {
             //Write to wallet file
-            string filePath = _fileDir + "/PASSKEEP/STORE/" + _websiteUniqueID + ".bin";
+            string filePath = _fileDir + CandyStore.GetParameters().FileFolder + _websiteUniqueID + ".bin";
 
             if (!File.Exists(filePath))
             {
@@ -32,7 +32,7 @@ namespace PassStorageService.CORE
         public static string WipeDir(string _fileDir)
         {
             //Write to wallet file
-            String FileFolder = _fileDir + "/PASSKEEP/STORE/";
+            String FileFolder = _fileDir + CandyStore.GetParameters().FileFolder;
             
 
             if (!Directory.Exists(FileFolder))
@@ -75,7 +75,7 @@ namespace PassStorageService.CORE
         public static PassObject ReadBlobToObject(string _readAsUniqueId, string _fileDir)
         {
             //Read from bin
-            string filePath = _fileDir + "/PASSKEEP/STORE/" + _readAsUniqueId + ".bin";
+            string filePath = _fileDir + CandyStore.GetParameters().FileFolder + _readAsUniqueId + ".bin";
 
             if (!File.Exists(filePath))
             {
@@ -96,7 +96,7 @@ namespace PassStorageService.CORE
         public static void WriteBin(byte[] _storage, string _saveAsUniqueId, string _fileDir)
         {
             //Write to wallet file
-            String FileFolder = _fileDir + "/PASSKEEP/STORE/";
+            String FileFolder = _fileDir + CandyStore.GetParameters().FileFolder;
             String FilePath = FileFolder + _saveAsUniqueId + ".bin";
 
             if (!Directory.Exists(FileFolder))

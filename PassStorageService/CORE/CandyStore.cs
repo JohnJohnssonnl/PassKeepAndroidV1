@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Security.Cryptography;
-using System.Linq;
 using System.Text;
-using System.IO;
 
 namespace PassStorageService.CORE
 {
@@ -29,6 +26,13 @@ namespace PassStorageService.CORE
             string ret = Convert.ToBase64String(passEncoder.EncodePassword(_Input, _iterations).Hash);
 
             return ret;
+        }
+
+        //Get parameters
+        public static Parameters GetParameters()
+        {
+            Parameters Parms = new Parameters();
+            return Parms;
         }
     }
 }
