@@ -61,6 +61,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CORE\AsyncHelpers.cs" />
     <Compile Include="CORE\Helper.cs" />
     <Compile Include="CORE\UIHandlingService.cs" />
     <Compile Include="MainActivity.cs" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Android.Support.V7.App;
+using System;
+using System.Threading.Tasks;
 
 namespace PassKeepAndroid.CORE
 {
